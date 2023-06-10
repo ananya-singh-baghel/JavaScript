@@ -4,7 +4,7 @@
 var a=10;
 function b(){
 	//local space
-	var x=10;
+	var x=10; 
 }
 console.log(window.a);
 console.log(a);
