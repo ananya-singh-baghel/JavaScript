@@ -10,7 +10,7 @@ api.proceedToPayment()
 const promise=createOrder(cart);
 
 promise.then(function(orderID){
-    proceedToPayment(orderID);
+    return proceedToPayment(orderID);
 });
 
 
