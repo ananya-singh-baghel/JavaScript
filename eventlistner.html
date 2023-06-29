@@ -1,0 +1,33 @@
+<html>
+<body>
+
+<h2>JavaScript addEventListener()</h2>
+
+<p id="demo"></p>
+
+<script>
+window.addEventListener("resize", function(){
+  document.getElementById("demo").innerHTML = alert(Math.random());
+});
+</script>
+
+</body>
+</html>
+
+/////
+
+<button id="myBtn">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+let p1 = prompt("p1: ");
+let p2 = prompt("p2: ");
+document.getElementById("myBtn").addEventListener("mouseover", function() {
+  myFunction(p1, p2);
+});
+
+function myFunction(a, b) {
+  document.getElementById("demo").innerHTML = a * b;
+}
+</script>
