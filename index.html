@@ -1,42 +1,107 @@
 <html>
 <style>
 	body{
-		background-color: lightblue;
+		display: center;padding: 50px;
+        background-color: lightblue;
 		background-image: url("geeky.svg");
-		background-size: 300px;
+		background-attachment: fixed;
+		background-position-x: 100%;
+		background-position-y: -10%;
+		background-size: 330px;
 		background-repeat: no-repeat;
-		background-position: right top;
+        font-family: Arial;
 	}
-#title {
-  text-align: left;
-  font-size: 40px;
-  color: red;
-  font-family: Arial;
-}
-#form {
-  text-align: left;
-  font-size: 25px;
-  color: red;
-  font-family: Arial;
-}
-div {
-  height: 500px;
-  width: 80%;
-}
+	li{
+		font-size: 15px;
+		margin-top: 0.9rem;
+		margin-right: 20.4rem;
+		margin-left: 0.9rem;
+		color:white;
+        background-color: red;
+	}
+	#title {
+		text-align: left;
+        font-size: 50px;
+        color: red;
+	}
+    input[type="button"] {
+        padding: 3px;
+        margin-top: 0.9rem;
+        font-weight: bold;
+        color: white;
+        background-color: red;
+    }
+    input[type="text"]{
+    	font-size: 15px;
+    	width: 450px;
+        padding: 3px;
+        margin-top: 0.6rem;
+        font-weight: bold;
+    }
+    button{
+    	color: black;
+    	border-width: 0.05rem;
+    	border-radius: 50%;
+    	font-size: 15;
+		margin-left: 0.7rem;
+		background-color: white;
+    }
+    /*#side{
+    	margin-top: 200px;
+    	text-align: right;
+    }*/
+    div.side {
+    	position: fixed;
+    	bottom: 0;
+    	top: 260;
+    	right: 0;
+    	width: 177px;
+    	font-size: 40px;
+    	/*border: 1px solid red;*/
+    }
+    
 </style>
 <script>
 
+function submitForm(){
+	let x = document.forms["form"]["activity"].value;
+	const para = document.createElement("li");
+	const button=document.createElement("button");
+	button.textContent = "X";
+	const node = document.createTextNode(x);
+	para.appendChild(node);
+	para.appendChild(button).addEventListener("click",function() {
+		para.remove();
+    });
+	var element = document.getElementById("newDiv");
+	element.appendChild(para);
+	document.forms["form"]["activity"].value ="";
+}
 
+function rmv(){
+	para.remove();
+}
 
 </script>
 <body>
-	<p id="title"><b>TO DO LIST</b></p>
-<div>
-<form id="form">
-  <input type="text" id="activity" name="activity">
-  <input type="submit" value="ADD">
-</form>
-<p id="para"></p>
-</div>
+	
+	<p id="title"><b>TO-DO LIST</b></p>
+	<form name="form">
+		<div class="form-cr">
+			<input type="text" id="activity" name="activity" placeholder="Enter activity" required>
+			<input type="button" value="ADD" onclick="return submitForm()" >
+		</div>
+	</form>
+	<div id="newDiv">
+		
+	</div>
+<!-- 	<div class="side">
+
+		<p><b>G</b></p>
+		<p><b>E</b></p>
+		<p><b>E</b></p>
+		<p><b>K</b></p>
+		<p><b>Y</b></p>
+	</div> -->
 </body>
 </html>
